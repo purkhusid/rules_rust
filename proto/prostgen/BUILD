@@ -14,14 +14,14 @@ rust_library(
         "module.rs",
     ],
     deps = [
-        "//proto/prostgen/raze:anyhow",
-        "//proto/prostgen/raze:heck",
-        "//proto/prostgen/raze:prost",
-        "//proto/prostgen/raze:prost_build",
-        "//proto/prostgen/raze:prost_types",
-        "//proto/prostgen/raze:structopt",
-        "//proto/prostgen/raze:thiserror",
-        "//proto/prostgen/raze:tonic_build",
+        "//proto/prostgen/raze/cargo:anyhow",
+        "//proto/prostgen/raze/cargo:heck",
+        "//proto/prostgen/raze/cargo:prost",
+        "//proto/prostgen/raze/cargo:prost_build",
+        "//proto/prostgen/raze/cargo:prost_types",
+        "//proto/prostgen/raze/cargo:structopt",
+        "//proto/prostgen/raze/cargo:thiserror",
+        "//proto/prostgen/raze/cargo:tonic_build",
     ],
 )
 
@@ -31,8 +31,8 @@ rust_binary(
     visibility = ["//visibility:public"],
     deps = [
         ":prostgen_lib",
-        "//proto/prostgen/raze:anyhow",
-        "//proto/prostgen/raze:structopt",
+        "//proto/prostgen/raze/cargo:anyhow",
+        "//proto/prostgen/raze/cargo:structopt",
     ],
 )
 

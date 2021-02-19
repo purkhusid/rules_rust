@@ -37,7 +37,7 @@ rust_library(
     visibility = ["//visibility:public"],
     deps = [
         ":echo_tonic",
-        "//proto/prostgen/raze:tonic",
+        "//proto/prostgen/raze/cargo:tonic",
     ],
 )
 
@@ -52,7 +52,7 @@ rust_test(
     srcs = ["echo_service_test.rs"],
     deps = [
         ":echo_tonic",
-        "//proto/prostgen/raze:tonic",
+        "//proto/prostgen/raze/cargo:tonic",
     ],
 )
 
@@ -181,14 +181,14 @@ proto_library(
 #     ],
 # )
 
-proto_library(
-    name = "shared_imports_proto",
-    srcs = ["shared_imports.proto"],
-    deps = [
-        "@com_google_googleapis//google/rpc:status_proto",
-        "@com_google_protobuf//:any_proto",
-    ],
-)
+# proto_library(
+#     name = "shared_imports_proto",
+#     srcs = ["shared_imports.proto"],
+#     deps = [
+#         "@com_google_googleapis//google/rpc:status_proto",
+#         "@com_google_protobuf//:any_proto",
+#     ],
+# )
 
 # prost_library(
 #     name = "shared_imports_prost",

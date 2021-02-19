@@ -23,7 +23,8 @@ thiserror = "=1.0.18"
 tonic = { version = "=0.3.0", features = ["default", "tls", "tls-roots", "transport"] }
 tonic-build = "=0.3.0"
 
-[raze]
+[package.metadata.raze]
+rust_rules_workspace_name = "rules_rust"
 # The WORKSPACE relative path to the Cargo.toml working directory.
 workspace_path = "//proto/prostgen/raze"
 genmode = "Remote"
