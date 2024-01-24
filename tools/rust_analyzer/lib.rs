@@ -67,7 +67,7 @@ pub fn write_rust_project(
     println!("toolchain_info_path: {}", toolchain_info_path);
     let r = Runfiles::create()?;
     let path = r.rlocation(toolchain_info_path);
-    println!("path: {}", path);
+    println!("path: {}", path.display());
     let toolchain_info: HashMap<String, String> =
         serde_json::from_str(&std::fs::read_to_string(path)?)?;
 
