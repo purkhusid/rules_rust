@@ -101,7 +101,9 @@ impl Runfiles {
 
     fn get_source_repository() -> String {
         let caller = std::env::current_exe().expect("failed to get current executable path");
-        regex::Regex::new(EXTERNAL_GENERATED_FILE_REGEX)
+        println!("caller: {}", caller.display());
+
+        let repo = regex::Regex::new(EXTERNAL_GENERATED_FILE_REGEX)
             .expect("failed to compile EXTERNAL_GENERATED_FILE_REGEX regex")
             .captures(caller.to_str().unwrap())
             .map(|c| c[0].to_string())
@@ -111,7 +113,10 @@ impl Runfiles {
                     .captures(caller.to_str().unwrap())
                     .map(|c| c[0].to_string())
             })
-            .unwrap_or_default()
+            .unwrap_or_default();
+
+        println!("source repo: {}", repo);
+        repo
     }
 
     fn create_directory_based() -> io::Result<Self> {
