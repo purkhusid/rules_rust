@@ -104,12 +104,12 @@ impl Runfiles {
         regex::Regex::new(EXTERNAL_GENERATED_FILE_REGEX)
             .expect("failed to compile EXTERNAL_GENERATED_FILE_REGEX regex")
             .captures(caller.to_str().unwrap())
-            .map(|c| c[1].to_string())
+            .map(|c| c[0].to_string())
             .or_else(|| {
                 regex::Regex::new(EXTERNAL_FILE_REGEX)
                     .expect("failed to compile EXTERNAL_FILE_REGEX regex")
                     .captures(caller.to_str().unwrap())
-                    .map(|c| c[1].to_string())
+                    .map(|c| c[0].to_string())
             })
             .unwrap_or_default()
     }
