@@ -161,6 +161,10 @@ impl Runfiles {
 
         let repo_map_key = format!("{},{}", self.source_repository, root.to_string_lossy());
         println!("repo_map_key: {}", repo_map_key);
+        println!("repo entries: ");
+        for (key, value) in &self.repo_mapping {
+            println!("{}: {}", key, value);
+        }
 
         let repo_mapped_path = self
             .repo_mapping
