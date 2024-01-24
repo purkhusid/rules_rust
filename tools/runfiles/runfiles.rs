@@ -155,16 +155,22 @@ impl Runfiles {
 
         let mut path_components = path.components();
         let root = PathBuf::new().join(path_components.next().unwrap());
+        println!("root: {}", root.display());
         let remainder = path_components.as_path();
+        println!("remainder: {}", remainder.display());
 
-        let repo_map_key = format!("{},{}", self.source_repository, root.to_string_lossy(),);
+        let repo_map_key = format!("{},{}", self.source_repository, root.to_string_lossy());
+        println!("repo_map_key: {}", repo_map_key);
+
         let repo_mapped_path = self
             .repo_mapping
             .get(&repo_map_key)
             .cloned()
             .map(|v| PathBuf::new().join(v).join(remainder));
+        println!("repo_mapped_path: {:?}", repo_mapped_path);
 
         let final_path = if let Some(repo_map_entry) = repo_mapped_path {
+            println!("repo_map_entry: {}", repo_map_entry.display());
             repo_map_entry
         } else {
             path.to_path_buf()
