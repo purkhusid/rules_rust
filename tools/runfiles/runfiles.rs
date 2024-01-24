@@ -170,6 +170,7 @@ impl Runfiles {
             path.to_path_buf()
         };
 
+        println!("final_path: {}", final_path.display());
         match &self.mode {
             Mode::DirectoryBased(runfiles_dir) => runfiles_dir.join(final_path),
             Mode::ManifestBased(path_mapping) => path_mapping
